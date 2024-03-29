@@ -1,0 +1,4 @@
+BubbleSort etc algos was performed on different array sizes and elapsed different time
+BS, hand-made algo : 0.3M: 0m30s; 0.4M 1m01s; 1M 7m36s; 2M 28m56s 
+BS1, classic algo  : 0.2M: 1m39s; 0.3M 3m43s, bad one
+Insertion sort algo: 0.3M: 0m27s; 0.4M 0m52s; 1M 6m43s; 2M 26m39s
