@@ -51,7 +51,7 @@ func IntBubbleSorting(Arr *[]int) bool {
 }
 
 func main() {
-	println ("starting")
+	println ("starting!")
 	var ArraySize = 2000000 // будущий размер массива
 	StartTime := time.Now()
 	myArray := make([]int, 0) // создали пустой слайс под будущую сортировку
