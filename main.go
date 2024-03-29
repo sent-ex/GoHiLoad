@@ -43,7 +43,7 @@ func InsertionSort(Arr *[]int) bool {
 		//println("------")
 		if time.Now().Minute() != ThisTime {
 			ThisTime = time.Now().Minute()
-			print(ThisTime)
+			println(ThisTime, "at: ", zoneIndex)
 		}
 	}
 	return true
@@ -107,7 +107,7 @@ func IntBubbleSorting(Arr *[]int) bool {
 
 func main() {
 	println("starting!")
-	var ArraySize = 400000 // будущий размер массива
+	var ArraySize = 1000000 // будущий размер массива
 	StartTime := time.Now()
 	myArray := make([]int, 0) // создали пустой слайс под будущую сортировку
 
