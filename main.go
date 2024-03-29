@@ -22,7 +22,34 @@ func swapIfLess(first, second *int) bool {
 	}
 }
 
+func printArray(Arr *[]int) {
+	for i := 0; i < len(*Arr); i++ {
+		println((*Arr)[i])
+	}
+}
+
+func InsertionSort(Arr *[]int) bool {
+	ArrayLen := len(*Arr)
+	ThisTime := time.Now().Minute()
+	for zoneIndex := 1; zoneIndex < ArrayLen; zoneIndex++ {
+		if (*Arr)[zoneIndex] < (*Arr)[zoneIndex-1] {
+			//	printArray(Arr)
+			j := zoneIndex
+			for (j > 0) && (swapIfLess(&(*Arr)[j], &(*Arr)[j-1])) {
+				//println((*Arr)[j], ":", (*Arr)[j-1], " swapping")
+				j--
+			}
+		}
+		//println("------")
+		if time.Now().Minute() != ThisTime {
+			ThisTime = time.Now().Minute()
+			print(ThisTime)
+		}
+	}
+	return true
+}
 func IntBubbleSorting1(Arr *[]int) bool {
+
 	if len(*Arr) < 2 {
 		return false
 	}
@@ -80,7 +107,7 @@ func IntBubbleSorting(Arr *[]int) bool {
 
 func main() {
 	println("starting!")
-	var ArraySize = 200000 // будущий размер массива
+	var ArraySize = 400000 // будущий размер массива
 	StartTime := time.Now()
 	myArray := make([]int, 0) // создали пустой слайс под будущую сортировку
 
@@ -88,13 +115,18 @@ func main() {
 	for {
 		// заполняем инициализированный слайс случайныйми числами
 		myArray = append(myArray, rand.Int())
+		//myArray = append(myArray, rand.Intn(100))
 		counter++
 		if counter == ArraySize {
 			break
 		}
 	}
-	IntBubbleSorting1(&myArray) //передаем алгоритму сортировки указатель на массив
+	InsertionSort(&myArray)
+	fmt.Println(ArraySize, "units sorting finished", time.Now().Sub(StartTime), "passed")
+
+	//printArray(&myArray)
+	//IntBubbleSorting1(&myArray) //передаем алгоритму сортировки указатель на массив
+	//IntBubbleSorting(&myArray) //передаем алгоритму сортировки указатель на массив
 	// (чтобы не плодить новый)
-	fmt.Println(ArraySize, " sorting finished", time.Now().Sub(StartTime), "passed")
 
 }
